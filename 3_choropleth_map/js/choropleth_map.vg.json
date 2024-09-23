@@ -13,25 +13,27 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url":  "https://raw.githubusercontent.com/AdrianEngCheeErn/Homework9FIT3179/main/3_choropleth_map/js/covid_10_10_2020.csv",  
+          "url": "https://raw.githubusercontent.com/AdrianEngCheeErn/Homework9FIT3179/refs/heads/main/3_choropleth_map/data/world-data-2023.csv",
           "format": {"type": "csv"}
         },
         "key": "Country",
-        "fields": ["Active"]
+        "fields": ["CPI"]
       }
-    },
-    {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
+    }
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Active Cases",
+      "field": "CPI",
       "type": "quantitative",
-      "scale": {"type": "log"}
+      "scale": {
+        "type": "log",
+        "scheme": "reds"
+      }
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-      {"field": "Active", "type": "quantitative"}
+      {"field": "CPI", "type": "quantitative", "title": "CPI"}
     ]
   }
 }
